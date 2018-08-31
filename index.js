@@ -6,7 +6,7 @@ const client = new Discord.Client();
 var prefix = "x.";
 
 //Login + connexion du bot :
-client.login("NDgzMzczMTY2ODM2ODQyNTA2.DmShNA.BVDSwaRkMR79D60mCYcpnybJBa8");
+client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log(`Connexion en cours ... Voici mon prefix : "` + prefix + `"`);
