@@ -43,4 +43,29 @@ if(message.content === prefix + "membercount" && message.channel.type != "dm"){
 if(message.content === prefix + "channelcount" && message.channel.type != "dm"){
   message.channel.send(`Sur le serveur **${message.guild.name}**, il y'a **${message.guild.channels.size}** channels vocaux/écrits !`)
 }
+	
+if(message.content.startsWith(prefix + "purge") || message.content.startsWith(prefix + "clear")) {
+        let myrole = message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"); //Récupère les droits nécessaires
+        let yourole = message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"); //Récupère les droits nécessaires
+    
+        if (!myrole) {
+            return message.channel.send(":no_entry:**Je n'ai pas les permissions nécessaires pour effacer un/des message(s)**");
+        }
+    
+        if (!yourole) {
+            return message.channel.send(":no_entry:**Vous n'avez pas les permissions nécessaires**");
+        }
+    
+        var suppression = message.content.substr(8);
+        if (suppression < 2 || suppression > 10001) {
+            return message.reply(":warning:**La valeur que vous avez entré est invalide, merci de choisir une valeur comprise entre 2 et 10000**");
+        }
+        message.channel.bulkDelete(suppression, true).then(ok => {
+            message.reply("**Suppression de " + "" + suppression + "" + " messages**")
+            .then(message => setTimeout(function(){message.delete()}, 1000))
+            .catch(err => console.log(err));
+        
+    })
+
+}
 });
