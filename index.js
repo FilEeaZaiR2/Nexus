@@ -27,7 +27,7 @@ client.on("guildMemberAdd", member => {
 
     member.addRole(members)
 })
-
+client.on(`message`, message =>{
 if(message.content === prefix + "membercount" && message.channel.type != "dm"){
 
   var mbr_embed = new Discord.RichEmbed()
@@ -43,3 +43,4 @@ if(message.content === prefix + "membercount" && message.channel.type != "dm"){
 if(message.content === prefix + "channelcount" && message.channel.type != "dm"){
   message.channel.send(`Sur le serveur **${message.guild.name}**, il y'a **${message.guild.channels.size}** channels vocaux/écrits !`)
 }
+});
