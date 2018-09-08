@@ -21,7 +21,7 @@ bvn.send(`Bienvenue ${member}, n'hésite pas à lire le ` + regles + ` pour plus
 })
 
 client.on("guildMemberAdd", member => {
-    var members = member.guild.roles.find("name", "Members");
+    var members = member.guild.roles.find("name", "Online");
 
     if(!members) return;
 
