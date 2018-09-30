@@ -17,7 +17,7 @@ client.on("guildMemberAdd", member => {
 if(!bvn) return;
 //var role = member.guild.roles.find("name", "Members");
 let regles = member.guild.channels.find("name", "règles");
-bvn.send(`Bienvenue ${member}, n'hésite pas à lire le ` + regles + ` pour plus d'informations !`)
+bvn.send(`Bienvenue ${member}, n'hésites pas à lire les ` + regles + ` pour plus d'informations !`)
 })
 
 client.on("guildMemberAdd", member => {
