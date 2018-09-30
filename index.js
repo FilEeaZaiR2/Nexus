@@ -20,6 +20,20 @@ let regles = member.guild.channels.find("name", "règles");
 bvn.send(`Bienvenue ${member}, n'hésites pas à lire les ` + regles + ` pour plus d'informations !`)
 })
 
+client.on("guildMemberRemove", member => {
+    const logs = member.guild.channels.find(m => m.name === "welcome-ciao");
+    if (!logs) return;
+const embed = new Discord.RichEmbed()
+.setColor('#FE6F01')
+.setAuthor(member.user.tag, member.user.avatarURL)
+.setTitle("Départ d'un utilisateur")
+.addField("Il s'agit de", `[${member.user.tag}]`, true)
+.addField(`Nombre de membres après le départ de __${member.user.tag}__`, member.guild.memberCount)
+.setFooter(`ID : ${member.user.id} | FilEeaZaiR#1258`)
+.setTimestamp()
+logs.send({embed})
+});
+
 client.on("guildMemberAdd", member => {
     var members = member.guild.roles.find("name", "Guest");
 
