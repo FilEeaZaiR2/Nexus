@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-var prefix = "x.";
+var prefix = "D|";
 
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
@@ -13,15 +13,15 @@ client.on("ready", () => {
 });
 
 client.on("guildMemberAdd", member => {
-    const bvn = member.guild.channels.find(m => m.name === "join-leave");
+    const bvn = member.guild.channels.find(m => m.name === "welcome-ciao");
 if(!bvn) return;
 //var role = member.guild.roles.find("name", "Members");
-let regles = member.guild.channels.find("name", "règlement");
+let regles = member.guild.channels.find("name", "règles");
 bvn.send(`Bienvenue ${member}, n'hésite pas à lire le ` + regles + ` pour plus d'informations !`)
 })
 
 client.on("guildMemberAdd", member => {
-    var members = member.guild.roles.find("name", "Tester");
+    var members = member.guild.roles.find("name", "Guest");
 
     if(!members) return;
 
