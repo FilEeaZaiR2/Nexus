@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-var prefix = "D|";
+var prefix = "L/";
 
 //Login + connexion du bot :
 client.login(process.env.TOKEN);
@@ -13,15 +13,15 @@ client.on("ready", () => {
 });
 
 client.on("guildMemberAdd", member => {
-    const bvn = member.guild.channels.find(m => m.name === "welcome-ciao");
+    const bvn = member.guild.channels.find(m => m.name === "acceuil");
 if(!bvn) return;
 //var role = member.guild.roles.find("name", "Members");
-let regles = member.guild.channels.find("name", "règles");
-bvn.send(`Bienvenue ${member}, n'hésites pas à lire les ` + regles + ` pour plus d'informations !`)
+let regles = member.guild.channels.find("name", "règlement");
+bvn.send(`Bienvenue ${member}, n'hésites pas à lire le ` + regles + ` pour plus d'informations !`)
 })
 
 client.on("guildMemberRemove", member => {
-    const logs = member.guild.channels.find(m => m.name === "welcome-ciao");
+    const logs = member.guild.channels.find(m => m.name === "départs");
     if (!logs) return;
 const embed = new Discord.RichEmbed()
 .setColor('#FE6F01')
